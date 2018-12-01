@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { SFC } from 'react';
 
 import MainLayout from './MainLayout';
 
-const App = () => (
+const App: SFC<{}> = props => (
   <MainLayout/>
 );
 
