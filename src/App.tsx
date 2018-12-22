@@ -65,13 +65,23 @@ class AuthPiece extends React.Component<{}, AuthFormFields> {
             >
               <div>
                 <label>
-                  Email: <input name="email" onChange={this.onChangeHandler} />
+                  Email:{' '}
+                  <input
+                    name="email"
+                    onChange={this.onChangeHandler}
+                    value={email}
+                  />
                 </label>
               </div>
               <div>
                 <label>
                   Password:{' '}
-                  <input name="password" onChange={this.onChangeHandler} />
+                  <input
+                    name="password"
+                    type="password"
+                    onChange={this.onChangeHandler}
+                    value={password}
+                  />
                 </label>
               </div>
               <button type="submit">Login</button>
@@ -83,7 +93,7 @@ class AuthPiece extends React.Component<{}, AuthFormFields> {
                 <div style={{ color: 'red' }}>
                   <div />{' '}
                   {this.getErrorMessages(error).map((message, index) => (
-                    <div key={ index }>{ message }</div>
+                    <div key={index}>{message}</div>
                   ))}
                 </div>
               )}
@@ -96,14 +106,6 @@ class AuthPiece extends React.Component<{}, AuthFormFields> {
 }
 
 const AuthPieceWithClient = graphql(SIGN_IN_MUTATION)(AuthPiece);
-
-// query QueryName {
-//   me {
-//     id
-//     email
-//     username
-//   }
-// }
 
 const App: SFC<{}> = () => (
   <MainLayout>
